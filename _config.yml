@@ -39,16 +39,16 @@ local:
   bash_shebang: "#!/usr/bin/env bash"
 
 remote:
-  name: "HPC Carpentry's Cloud Cluster"
-  login: "cluster.hpc-carpentry.org"
-  portal: "https://mokey.cluster.hpc-carpentry.org"
-  host: "login1"
-  node: "node1"
+  name: "Charitè HPC Cluster"
+  login: "s-sc-frontend[1-3].charite.de"
+  portal: "https://git.bihealth.org/charite-sc-public/sc-wiki"
+  host: "s-sc-frontend3"
+  node: "s-sc-node001"
   location: "cluster.hpc-carpentry.org"
-  homedir: "/home"
-  user: "yourUsername"
+  homedir: "/home/reppasa"
+  user: "reppasa"
   module_python3: "Python"
-  prompt: "[yourUsername@login1 ~]$"
+  prompt: "[reppasa@s-sc-frontend3.charite.de ~]$"
   bash_shebang: "#!/bin/bash"
 
 sched:
