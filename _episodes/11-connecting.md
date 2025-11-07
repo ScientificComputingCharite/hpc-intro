@@ -48,7 +48,7 @@ machine address as the only required argument. If your username on the remote
 system differs from what you use locally, you must provide that as well. If
 your SSH client has a graphical front-end, such as PuTTY or MobaXterm, you will
 set these arguments before clicking "connect." From the terminal, you'll write
-something like `ssh userName@hostname`, where the argument is just like an
+something like `ssh reppasa@s-sc-frontend1.charite.de`, where the argument is just like an
 email address: the "@" symbol is used to separate the personal ID from the
 address of the remote machine.
 
