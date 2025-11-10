@@ -74,12 +74,12 @@ devices are anchored to the "root" directory, which is `/`:
 {: .language-bash}
 ```
 bin   etc   lib64  proc  sbin     sys  var
-boot  {{ site.remote.homedir | replace: "/", "" }}  mnt    root  scratch  tmp  working
+boot  {{ site.remote.homedir }}  mnt    root  scratch  tmp  working
 dev   lib   opt    run   srv      usr
 ```
 {: .output}
 
-The "{{ site.remote.homedir | replace: "/", "" }}" directory is the one where
+The "{{ site.remote.homedir }}" directory is the one where
 we generally want to keep all of our files. Other folders on a UNIX OS contain
 system files and change as you install new software or upgrade your OS.
 
