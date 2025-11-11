@@ -73,6 +73,7 @@ manner. Our shell script will have three parts:
 
 echo -n "This script is running on "
 hostname
+sleep 20
 ```
 {: .output}
 
@@ -162,7 +163,7 @@ name of a job. Add an option to the script:
 
 ```
 {{ site.remote.bash_shebang }}
-{{ site.sched.comment }} {{ site.sched.flag.name }} hello-world
+{{ site.sched.comment }} {{ site.sched.flag.name }}=hello
 
 echo -n "This script is running on "
 hostname
