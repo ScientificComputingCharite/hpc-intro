@@ -104,7 +104,7 @@ it to tell us where a particular piece of software is stored.
 {{ site.remote.prompt }} srun -n 2 --pty bash
 srun: job 6799379 queued and waiting for resources
 srun: job 6799379 has been allocated resources
-[reppasa@s-sc-frontend3 ~]$ which R
+[reppasa@s-sc-node004 ~]$ which R
 /usr/bin/which: no R in (/home/reppasa/.local/bin:/home/reppasa/bin:/usr/share/Modules/bin:/opt/miniforge/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
 
 [reppasa@s-sc-node004 ~]$ module avail
@@ -123,7 +123,7 @@ modulepath
 [reppasa@s-sc-node004 ~]$ R
 bash: R: command not found
 [reppasa@s-sc-node004 ~]$ module load R/4.5.0
-[reppasa@s-sc-frontend3 ~]$ which R
+[reppasa@s-sc-node004 ~]$ which R
 /sc-software/modules_el9/R/4.5.0/bin/R
 
 [reppasa@s-sc-node004 ~]$ R
@@ -162,7 +162,6 @@ variables we can print it out using `echo`.
 ```
 {{ site.remote.prompt }} echo $PATH
 ```
-{: .language-bash}
 
 {% include {{ site.snippets }}/modules/r-module-path.snip %}
 
