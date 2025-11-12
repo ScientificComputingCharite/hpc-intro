@@ -9,6 +9,8 @@ job with `Ctrl-c`.)
 {: .language-bash}
 
 ```
+srun: job 6799015 queued and waiting for resources
+srun: job 6799015 has been allocated resources
 {{ site.remote.node }}
 ```
 {: .output}
@@ -44,6 +46,11 @@ easy to start an interactive job with `{{ site.sched.interactive }}`:
 ```
 {: .language-bash}
 
+```
+srun: job 6799019 queued and waiting for resources
+srun: job 6799019 has been allocated resources
+{{ site.remote.node }}
+
 You should be presented with a bash prompt. Note that the prompt will likely
 change to reflect your new location, in this case the compute node we are
 logged on. You can also verify this with `hostname`.
@@ -52,7 +59,7 @@ logged on. You can also verify this with `hostname`.
 >
 > To see graphical output inside your jobs, you need to use X11 forwarding. To
 > connect with this feature enabled, use the `-Y` option when you login with
-> the `ssh` command, e.g., `ssh -Y {{ site.remote.user }}@{{ site.remote.login }}`.
+> the `ssh` command, e.g., `ssh -X {{ site.remote.user }}@{{ site.remote.login }}`.
 >
 > To demonstrate what happens when you create a graphics window on the remote
 > node, use the `xeyes` command. A relatively adorable pair of eyes should pop

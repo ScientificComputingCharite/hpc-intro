@@ -163,10 +163,11 @@ name of a job. Add an option to the script:
 
 ```
 {{ site.remote.bash_shebang }}
-{{ site.sched.comment }} {{ site.sched.flag.name }}=hello
+{{ site.sched.comment }} {{ site.sched.flag.name }}=sleep
 
 echo -n "This script is running on "
 hostname
+sleep 20
 ```
 {: .output}
 
@@ -219,7 +220,7 @@ later episode of this lesson.
 > >
 > > ```
 > > {{ site.remote.bash_shebang }}
-> > {{ site.sched.comment }} {{ site.sched.flag.time }} 00:01 # timeout in HH:MM
+> > {{ site.sched.comment }} {{ site.sched.flag.time }}=00:01 # timeout in HH:MM
 > >
 > > echo -n "This script is running on "
 > > sleep 20 # time in seconds
@@ -300,7 +301,7 @@ return of your command prompt indicates that the request to cancel the job was
 successful.
 
 ```
-{{ site.remote.prompt }} {{site.sched.del }} 38759
+{{ site.remote.prompt }} {{site.sched.del }} 6786545
 # It might take a minute for the job to disappear from the queue...
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
 ```
