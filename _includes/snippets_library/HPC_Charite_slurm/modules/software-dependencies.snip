@@ -1,3 +1,5 @@
+{: .language-bash}
+
 To demonstrate, let's use `module list`. `module list` shows all loaded
 software modules.
 
@@ -10,9 +12,7 @@ reppasa@s-sc-node004 ~]$ module list
 Currently Loaded Modulefiles:
  1) R/4.5.0
 ```
-{: .output}
 
-```
 [reppasa@s-sc-node004 ~]$ module avail
 ---------------------------------------------------------------------------- /sc-software/modules_el9/modulefiles ----------------------------------------------------------------------------
 abaqus/2025  freesurfer/7.4.1  IMOD/5.1.5   matlab/R2024b       mrtrix3/3.0.5       qupath/0.5.1  relion/4.0.2  samtools/1.17   
@@ -38,7 +38,7 @@ Currently Loaded Modulefiles:
  1) R/4.5.0   2) matlab/R2024b  
 
 ```
-{: .output}
+{: .language-bash}
 
 Load also freesurfer:
 
@@ -58,13 +58,10 @@ So using `module unload` "un-loads" a module, and depending on how a site is
 ```
 {{ site.remote.prompt }} module purge
 {{ site.remote.prompt }} module list
-```
-{: .language-bash}
 
-```
 No modules loaded
 ```
-{: .output}
+{: .language-bash}
 
 Note that `module purge` is informative. It will also let us know if a default
 set of "sticky" packages cannot be unloaded (and how to actually unload these

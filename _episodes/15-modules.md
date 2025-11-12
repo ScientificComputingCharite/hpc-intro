@@ -166,6 +166,8 @@ variables we can print it out using `echo`.
 
 {% include {{ site.snippets }}/modules/r-module-path.snip %}
 
+{: .language-bash}
+
 You'll notice a similarity to the output of the `which` command. In this case,
 there's only one difference: the different directory at the beginning. When we
 ran the `module load` command, it added a directory to the beginning of our
@@ -175,12 +177,16 @@ ran the `module load` command, it added a directory to the beginning of our
 
 {% include {{ site.snippets }}/modules/r-ls-dir-output.snip %}
 
+{: .language-bash}
+
 Taking this to its conclusion, `module load` will add software to your `$PATH`.
 It "loads" software. A special note on this - depending on which version of the
 `module` program that is installed at your site, `module load` will also load
 required software dependencies.
 
 {% include {{ site.snippets }}/modules/software-dependencies.snip %}
+
+{: .language-bash}
 
 Note that this module loading process happens principally through
 the manipulation of environment variables like `$PATH`. There
@@ -217,7 +223,7 @@ Let's examine the output of `module avail` more closely.
 
 > ## Using Software Modules in Scripts
 >
-> Create a job that is able to run `python3 --version`. Remember, no software
+> Create a job that is able to run `R --version`. Remember, no software
 > is loaded by default! Running a job is just like logging on to the system
 > (you should not assume a module loaded on the login node is loaded on a
 > compute node).
@@ -225,8 +231,8 @@ Let's examine the output of `module avail` more closely.
 > > ## Solution
 > >
 > > ```
-> > {{ site.remote.prompt }} nano python-module.sh
-> > {{ site.remote.prompt }} cat python-module.sh
+> > {{ site.remote.prompt }} nano r-module.sh
+> > {{ site.remote.prompt }} cat r-module.sh
 > > ```
 > > {: .language-bash}
 > >
@@ -234,16 +240,16 @@ Let's examine the output of `module avail` more closely.
 > > {{ site.remote.bash_shebang }}
 > > {{ site.sched.comment }} {{ site.sched.flag.partition }}{% if site.sched.flag.qos %}
 > > {{ site.sched.comment }} {{ site.sched.flag.qos }}
-> > {% endif %}{{ site.sched.comment }} {{ site.sched.flag.time }} 00:00:30
+> > {% endif %}{{ site.sched.comment }} {{ site.sched.flag.time }}=00:00:30
 > > 
-> > module load {{ site.remote.module_python3 }}
+> > module load R/4.5.0
 > >
-> > python3 --version
+> > R --version
 > > ```
 > > {: .output}
 > >
 > > ```
-> > {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}python-module.sh
+> > {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}r-module.sh
 > > ```
 > > {: .language-bash}
 > {: .solution}
