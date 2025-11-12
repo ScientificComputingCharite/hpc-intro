@@ -139,6 +139,7 @@ Type 'license()' or 'licence()' for distribution details.
   Natural language support but running in an English locale
 ```
 {: .language-bash}
+
 <!---
 {% include {{ site.snippets }}/modules/missing-python.snip %}
 
@@ -148,6 +149,7 @@ We can load the `python3` command with `module load`:
 
 {% include {{ site.snippets }}/modules/python-executable-dir.snip %}
 -->
+
 So, what just happened?
 
 To understand the output, first we need to understand the nature of the `$PATH`

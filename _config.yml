@@ -82,7 +82,7 @@ episode_order:
   - 12-cluster
   - 13-scheduler
   - 14-environment-variables
-#  - 15-modules
+  - 15-modules
   - 16-transferring-files
 #  - 17-parallel
   - 18-resources
