@@ -46,15 +46,23 @@ $ set
 {: .language-bash}
 
 ~~~
-COMPUTERNAME=TURING
-HOME=/home/vlad
-HOSTNAME=TURING
-HOSTTYPE=i686
-NUMBER_OF_PROCESSORS=4
-PATH=/Users/vlad/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-PWD=/home/vlad
-UID=1000
-USERNAME=vlad
+BASH=/bin/bash
+BASHOPTS=checkwinsize:cmdhist:complete_fullquote:expand_aliases:extglob:extquote:force_fignore:globasciiranges:histappend:interactive_comments:login_shell:progcomp:promptvars:sourcepath
+BASHRCSOURCED=Y
+BASH_ALIASES=()
+BASH_ARGC=([0]="0")
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_COMPLETION_VERSINFO=([0]="2" [1]="11")
+BASH_LINENO=()
+BASH_REMATCH=()
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="5" [1]="1" [2]="8" [3]="1" [4]="release" [5]="x86_64-redhat-linux-gnu")
+BASH_VERSION='5.1.8(1)-release'
+COLUMNS=80
+CONDA_EXE=/opt/miniforge/bin/conda
+CONDA_PYTHON_EXE=/opt/miniforge/bin/python
+
 ...
 ~~~
 {: .output}
@@ -97,7 +105,7 @@ $ echo $HOME
 {: .language-bash}
 
 ~~~
-/home/vlad
+/home/reppasa
 ~~~
 {: .output}
 
@@ -105,7 +113,7 @@ The dollar sign tells the shell that we want the *value* of the variable
 rather than its name.
 This works just like wildcards:
 the shell does the replacement *before* running the program we've asked for.
-Thanks to this expansion, what we actually run is `echo /home/vlad`,
+Thanks to this expansion, what we actually run is `echo /home/reppasa`,
 which displays the right thing.
 
 ## Creating and Changing Variables
@@ -222,16 +230,19 @@ To show how this works,
 here are the components of `PATH` listed one per line:
 
 ~~~
-/Users/vlad/bin
-/usr/local/git/bin
-/usr/bin
-/bin
-/usr/sbin
-/sbin
+/home/reppasa/.local/bin
+/home/reppasa/bin
+/usr/share/Modules/bin
+/opt/miniforge/condabin
 /usr/local/bin
+/usr/bin
+/usr/local/sbin
+/usr/sbin
+
 ~~~
 {: .output}
 
+<!---
 On our computer,
 there are actually three programs called `analyze`
 in three different directories:
@@ -254,5 +265,7 @@ In the next episode we'll learn how to use helper tools to help us manage our
 runtime environment to make that possible without us needing to do a lot of
 bookkeeping on what the value of `PATH` (and other important environment
 variables) is or should be.
+
+-->
 
 {% include links.md %}

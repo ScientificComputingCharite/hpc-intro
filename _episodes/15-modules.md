@@ -94,17 +94,52 @@ message telling you so
 ## Loading and Unloading Software
 
 To load a software module, use `module load`. In this example we will use
-Python 3.
+R.
 
-Initially, Python 3 is not loaded. We can test this by using the `which`
+Initially, R is not loaded. We can test this by using the `which`
 command. `which` looks for programs the same way that Bash does, so we can use
 it to tell us where a particular piece of software is stored.
 
 ```
-{{ site.remote.prompt }} which python3
+{{ site.remote.prompt }} srun -n 2 --pty bash
+srun: job 6799379 queued and waiting for resources
+srun: job 6799379 has been allocated resources
+[reppasa@s-sc-frontend3 ~]$ which R
+/usr/bin/which: no R in (/home/reppasa/.local/bin:/home/reppasa/bin:/usr/share/Modules/bin:/opt/miniforge/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+
+[reppasa@s-sc-node004 ~]$ module avail
+---------------------------------------------------------------------------- /sc-software/modules_el9/modulefiles ----------------------------------------------------------------------------
+abaqus/2025  freesurfer/7.4.1  IMOD/5.1.5   matlab/R2024b       mrtrix3/3.0.5       qupath/0.5.1  relion/4.0.2  samtools/1.17   
+fiji/1.54f   fsl/6.0.7.18      julia/1.7.0  matlabruntime/v910  plink/v2.00-250819  R/4.5.0       relion/5.0.0  vscode/4.101.2  
+
+------------------------------------------------------------------------------- /usr/share/Modules/modulefiles -------------------------------------------------------------------------------
+dot  module-git  module-info  modules  null  use.own  
+
+----------------------------------------------------------------------------------- /usr/share/modulefiles -----------------------------------------------------------------------------------
+mpi/openmpi-x86_64  
+
+Key:
+modulepath  
+[reppasa@s-sc-node004 ~]$ R
+bash: R: command not found
+[reppasa@s-sc-node004 ~]$ module load R/4.5.0
+[reppasa@s-sc-frontend3 ~]$ which R
+/sc-software/modules_el9/R/4.5.0/bin/R
+
+[reppasa@s-sc-node004 ~]$ R
+
+R version 4.5.0 (2025-04-11) -- "How About a Twenty-Six"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
 ```
 {: .language-bash}
-
+<!---
 {% include {{ site.snippets }}/modules/missing-python.snip %}
 
 We can load the `python3` command with `module load`:
@@ -112,7 +147,7 @@ We can load the `python3` command with `module load`:
 {% include {{ site.snippets }}/modules/module-load-python.snip %}
 
 {% include {{ site.snippets }}/modules/python-executable-dir.snip %}
-
+-->
 So, what just happened?
 
 To understand the output, first we need to understand the nature of the `$PATH`
@@ -127,16 +162,16 @@ variables we can print it out using `echo`.
 ```
 {: .language-bash}
 
-{% include {{ site.snippets }}/modules/python-module-path.snip %}
+{% include {{ site.snippets }}/modules/r-module-path.snip %}
 
 You'll notice a similarity to the output of the `which` command. In this case,
 there's only one difference: the different directory at the beginning. When we
 ran the `module load` command, it added a directory to the beginning of our
 `$PATH`. Let's examine what's there:
 
-{% include {{ site.snippets }}/modules/python-ls-dir-command.snip %}
+{% include {{ site.snippets }}/modules/r-ls-dir-command.snip %}
 
-{% include {{ site.snippets }}/modules/python-ls-dir-output.snip %}
+{% include {{ site.snippets }}/modules/r-ls-dir-output.snip %}
 
 Taking this to its conclusion, `module load` will add software to your `$PATH`.
 It "loads" software. A special note on this - depending on which version of the
