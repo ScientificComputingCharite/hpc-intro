@@ -78,6 +78,38 @@ keys to scroll through fields).
 ```
 {: .language-bash}
 
+For running jobs, one can check the job details using the command `scontrol show job <job-id>`:
+
+```
+$ scontrol show job 6831801
+JobId=6831801 JobName=bash
+   UserId=reppasa(147953) GroupId=posix-nogroup(100100) MCS_label=N/A
+   Priority=5135 Nice=0 Account=sc-users QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=0 Reboot=0 ExitCode=0:0
+   RunTime=00:00:07 TimeLimit=02:00:00 TimeMin=N/A
+   SubmitTime=2025-11-13T15:00:02 EligibleTime=2025-11-13T15:00:02
+   AccrueTime=2025-11-13T15:00:02
+   StartTime=2025-11-13T15:00:05 EndTime=2025-11-13T17:00:05 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-11-13T15:00:05 Scheduler=Main
+   Partition=compute AllocNode:Sid=s-sc-frontend3:3620203
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=s-sc-node011
+   BatchHost=s-sc-node011
+   NumNodes=1 NumCPUs=2 NumTasks=2 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=2,mem=8G,node=1,billing=4
+   AllocTRES=cpu=2,mem=8G,node=1,billing=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryCPU=4G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=bash
+   WorkDir=/home/reppasa
+
+```
+{: .language-bash}
+
+
 > ## Discussion
 >
 > This view can help compare the amount of time requested and actually
