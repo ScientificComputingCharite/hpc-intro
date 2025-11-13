@@ -49,6 +49,7 @@ remote:
   user: "reppasa"
   module_python3: "Python"
   prompt: "[reppasa@s-sc-frontend3 ~]$"
+  prompt_node: "[reppasa@s-sc-frontend3 ~]$"
   bash_shebang: "#!/bin/bash"
 
 sched:

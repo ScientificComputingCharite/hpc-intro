@@ -240,8 +240,8 @@ talked about data transfer earlier.
 > The first step is to start an interactive job in a compute node. 
 > Then, you are able to directly connect to the node from your local PC and tranfer data. 
 > ```
-{{ site.remote.prompt }} srun -n 2 --pty bash
->    {{ site.remote.node }}$ squeue -u reppasa
+> {{ site.remote.prompt }} srun -n 2 --pty bash
+> {{ site.remote.prompt_node }} squeue -u reppasa
 >             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 >           6819163   compute     bash  reppasa  R       0:07      1 {{ site.remote.node }}
 > ```
@@ -249,8 +249,8 @@ talked about data transfer earlier.
 > ```
 >    {{ site.local.prompt }} $ ssh reppasa@{{ site.remote.node }}
 >    Last login: Thu Nov 13 11:02:48 2025 from 172.29.224.70
->    {{ site.remote.node }}$
->    {{ site.remote.node }}$ exit
+>    {{ site.remote.prompt_node }}
+>    {{ site.remote.prompt_node }} exit
 >     
 >
 > ```
