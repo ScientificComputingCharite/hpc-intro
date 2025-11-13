@@ -237,31 +237,47 @@ talked about data transfer earlier.
 > what may affect your transfer performance. It is always useful to run some
 > tests that you can use to extrapolate how long it will take to transfer your
 > data.
+> The first step is to start an interactive job in a compute node. 
+> Then, you are able to directly connect to the node from your local PC and tranfer data. 
+> ```
+{{ site.remote.prompt }} srun -n 2 --pty bash
+>    {{ site.remote.node }}$ squeue -u reppasa
+>             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+>           6819163   compute     bash  reppasa  R       0:07      1 {{ site.remote.node }}
+> ```
+> Start a new terminal in your local PC and connect directly to the node that your interactive job runs:
+> ```
+>    {{ site.local.prompt }} $ ssh reppasa@{{ site.remote.node }}
+>    Last login: Thu Nov 13 11:02:48 2025 from 172.29.224.70
+>    {{ site.remote.node }}$
+>    {{ site.remote.node }}$ exit
+>     
 >
+> ```
 > Say you have a "data" folder containing 10,000 or so files, a healthy mix of
 > small and large ASCII and binary data. Which of the following would be the
 > best way to transfer them to {{ site.remote.name }}?
 >
 > 1. ```
->    {{ site.local.prompt }} scp -r data {{ site.remote.user }}@{{ site.remote.login }}:~/
+>    {{ site.local.prompt }} scp -r data {{ site.remote.user }}@{{ site.remote.node }}:~/
 >    ```
 >    {: .language-bash}
 > 2. ```
->    {{ site.local.prompt }} rsync -ra data {{ site.remote.user }}@{{ site.remote.login }}:~/
+>    {{ site.local.prompt }} rsync -ra data {{ site.remote.user }}@{{ site.remote.node }}:~/
 >    ```
 >    {: .language-bash}
 > 3. ```
->    {{ site.local.prompt }} rsync -raz data {{ site.remote.user }}@{{ site.remote.login }}:~/
+>    {{ site.local.prompt }} rsync -raz data {{ site.remote.user }}@{{ site.remote.node }}:~/
 >    ```
 >    {: .language-bash}
 > 4. ```
 >    {{ site.local.prompt }} tar -cvf data.tar data
->    {{ site.local.prompt }} rsync -raz data.tar {{ site.remote.user }}@{{ site.remote.login }}:~/
+>    {{ site.local.prompt }} rsync -raz data.tar {{ site.remote.user }}@{{ site.remote.node }}:~/
 >    ```
 >    {: .language-bash}
 > 5. ```
 >    {{ site.local.prompt }} tar -cvzf data.tar.gz data
->    {{ site.local.prompt }} rsync -ra data.tar.gz {{ site.remote.user }}@{{ site.remote.login }}:~/
+>    {{ site.local.prompt }} rsync -ra data.tar.gz {{ site.remote.user }}@{{ site.remote.node }}:~/
 >    ```
 >    {: .language-bash}
 >

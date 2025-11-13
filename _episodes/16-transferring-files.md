@@ -422,6 +422,7 @@ you will have to specify it using the appropriate flag, often `-p`, `-P`, or
 > {: .solution}
 {: .challenge}
 
+<!---
 ## Transferring Files Interactively with FileZilla
 
 FileZilla is a cross-platform client for downloading and uploading files to and
@@ -459,3 +460,4 @@ machine.
 
 [git-swc]: https://swcarpentry.github.io/git-novice/
 [rsync]: https://rsync.samba.org/
+-->

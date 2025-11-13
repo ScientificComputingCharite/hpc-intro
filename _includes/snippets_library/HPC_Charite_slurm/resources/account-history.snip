@@ -1,14 +1,29 @@
 ```
-       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
------------- ---------- ---------- ---------- ---------- ---------- --------
-7               file.sh cpubase_b+ def-spons+          1  COMPLETED      0:0
-7.batch           batch            def-spons+          1  COMPLETED      0:0
-7.extern         extern            def-spons+          1  COMPLETED      0:0
-8               file.sh cpubase_b+ def-spons+          1  COMPLETED      0:0
-8.batch           batch            def-spons+          1  COMPLETED      0:0
-8.extern         extern            def-spons+          1  COMPLETED      0:0
-9            example-j+ cpubase_b+ def-spons+          1  COMPLETED      0:0
-9.batch           batch            def-spons+          1  COMPLETED      0:0
-9.extern         extern            def-spons+          1  COMPLETED      0:0
+JobID           JobName  Partition    Account  AllocCPUS      State ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- -------- 
+6387750            bash    compute   sc-users          2    TIMEOUT      0:0 
+6387750.ext+     extern              sc-users          2  COMPLETED      0:0 
+6387750.0          bash              sc-users          2  CANCELLED      0:9 
+6392972            bash    compute   sc-users          2  COMPLETED      0:0 
+6392972.ext+     extern              sc-users          2  COMPLETED      0:0 
+6392972.0          bash              sc-users          2  COMPLETED      0:0 
+6392973            bash    compute   sc-users          2     FAILED      1:0 
+6392973.ext+     extern              sc-users          2  COMPLETED      0:0 
+6392973.0          bash              sc-users          2     FAILED      1:0 
+6392979            bash    compute   sc-users          2  COMPLETED      0:0 
+6392979.ext+     extern              sc-users          2  COMPLETED      0:0 
+6392979.0          bash              sc-users          2  COMPLETED      0:0 
+6401363      sys/dashb+    compute   sc-users          1     FAILED      1:0 
+6401363.bat+      batch              sc-users          1     FAILED      1:0 
+6401363.ext+     extern              sc-users          1  COMPLETED      0:0 
+6401364            bash    compute   sc-users          2     FAILED      2:0 
+6401364.ext+     extern              sc-users          2  COMPLETED      0:0 
+6401364.0          bash              sc-users          2     FAILED      2:0 
+6401366      sys/dashb+    compute   sc-users          1     FAILED      1:0 
+6401366.bat+      batch              sc-users          1     FAILED      1:0 
+6401366.ext+     extern              sc-users          1  COMPLETED      0:0 
+6401369      sys/dashb+    compute   sc-users          5     FAILED      1:0 
+6401369.bat+      batch              sc-users          5     FAILED      1:0 
+6401369.ext+     extern              sc-users          5  COMPLETED      0:0 
 ```
 {: .output}

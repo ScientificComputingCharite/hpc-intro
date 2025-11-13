@@ -58,13 +58,13 @@ use `{{ site.sched.hist }}` to get statistics about `parallel-job.sh`.
 
 {% include {{ site.snippets }}/resources/account-history.snip %}
 
-This shows all the jobs we ran today (note that there are multiple entries per
+This shows all the jobs ran starting from OCtober 1st 2025 and on (note that there are multiple entries per
 job).
 To get info about a specific job (for example, 347087), we change command
 slightly.
 
 ```
-{{ site.remote.prompt }} {{ site.sched.hist }} {{ site.sched.flag.histdetail }} 347087
+{{ site.remote.prompt }} {{ site.sched.hist }} {{ site.sched.flag.histdetail }} 6401363
 ```
 {: .language-bash}
 
@@ -74,7 +74,7 @@ information to `less` to make it easier to view (use the left and right arrow
 keys to scroll through fields).
 
 ```
-{{ site.remote.prompt }} {{ site.sched.hist }} {{ site.sched.flag.histdetail }} 347087 | less -S
+{{ site.remote.prompt }} {{ site.sched.hist }} {{ site.sched.flag.histdetail }} 6401363 | less -S
 ```
 {: .language-bash}
 
@@ -86,6 +86,8 @@ keys to scroll through fields).
 >
 > How accurate were our estimates?
 {: .discussion}
+
+<!---
 
 ## Improving Resource Requests
 
@@ -99,6 +101,8 @@ instead of "sneaking it in" a much shorter window where the job could
 actually finish. Specifying the expected runtime in the submission
 script more accurately will help alleviate cluster congestion and may
 get your job dispatched earlier.
+
+
 
 > ## Narrow the Time Estimate
 >
@@ -120,3 +124,4 @@ get your job dispatched earlier.
 {: .challenge}
 
 {% include links.md %}
+-->
