@@ -81,7 +81,7 @@ keys to scroll through fields).
 For running jobs, one can check the job details using the command `scontrol show job <job-id>`:
 
 ```
-$ scontrol show job 6831801
+$ {{ site.remote.prompt }} scontrol show job 6831801
 JobId=6831801 JobName=bash
    UserId=reppasa(147953) GroupId=posix-nogroup(100100) MCS_label=N/A
    Priority=5135 Nice=0 Account=sc-users QOS=normal
