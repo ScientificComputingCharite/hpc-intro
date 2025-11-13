@@ -74,7 +74,7 @@ sched:
   interactive: "srun"
   info: "sinfo"
   comment: "#SBATCH"
-  hist: "sacct -u reppasa"
+  hist: "sacct -u reppasa -S 2025-10-01"
   hist_filter: ""
 
 episode_order:

@@ -49,7 +49,7 @@ finish and free up the resources needed to match what you asked for.
 
 Since we already submitted `amdahl` to run on the cluster, we can query the
 scheduler to see how long our job took and what resources were used. We will
-use `{{ site.sched.hist }}` to get statistics about `parallel-job.sh`.
+use `{{ site.sched.hist }}` to get statistics about Jobs starting after a certain date.
 
 ```
 {{ site.remote.prompt }} {{ site.sched.hist }}
@@ -58,7 +58,7 @@ use `{{ site.sched.hist }}` to get statistics about `parallel-job.sh`.
 
 {% include {{ site.snippets }}/resources/account-history.snip %}
 
-This shows all the jobs ran starting from OCtober 1st 2025 and on (note that there are multiple entries per
+This shows all the jobs ran starting from October 1st 2025 and on (note that there are multiple entries per
 job).
 To get info about a specific job (for example, 347087), we change command
 slightly.
