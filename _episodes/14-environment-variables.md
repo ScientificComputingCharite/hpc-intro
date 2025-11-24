@@ -105,7 +105,7 @@ $ echo $HOME
 {: .language-bash}
 
 ~~~
-/home/reppasa
+/home/svc-sc-slurm3
 ~~~
 {: .output}
 
@@ -113,7 +113,7 @@ The dollar sign tells the shell that we want the *value* of the variable
 rather than its name.
 This works just like wildcards:
 the shell does the replacement *before* running the program we've asked for.
-Thanks to this expansion, what we actually run is `echo /home/reppasa`,
+Thanks to this expansion, what we actually run is `echo /home/svc-sc-slurm3`,
 which displays the right thing.
 
 ## Creating and Changing Variables
@@ -230,8 +230,8 @@ To show how this works,
 here are the components of `PATH` listed one per line:
 
 ~~~
-/home/reppasa/.local/bin
-/home/reppasa/bin
+/home/svc-sc-slurm3/.local/bin
+/home/svc-sc-slurm3/bin
 /usr/share/Modules/bin
 /opt/miniforge/condabin
 /usr/local/bin

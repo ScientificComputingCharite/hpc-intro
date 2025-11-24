@@ -104,10 +104,10 @@ it to tell us where a particular piece of software is stored.
 {{ site.remote.prompt }} srun -n 2 --pty bash
 srun: job 6799379 queued and waiting for resources
 srun: job 6799379 has been allocated resources
-[reppasa@s-sc-node004 ~]$ which R
-/usr/bin/which: no R in (/home/reppasa/.local/bin:/home/reppasa/bin:/usr/share/Modules/bin:/opt/miniforge/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+{{ site.remote.node }} which R
+/usr/bin/which: no R in (/home/svc-sc-slurm3/.local/bin:/home/svc-sc-slurm3/bin:/usr/share/Modules/bin:/opt/miniforge/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
 
-[reppasa@s-sc-node004 ~]$ module avail
+{{ site.remote.node }} module avail
 ---------------------------------------------------------------------------- /sc-software/modules_el9/modulefiles ----------------------------------------------------------------------------
 abaqus/2025  freesurfer/7.4.1  IMOD/5.1.5   matlab/R2024b       mrtrix3/3.0.5       qupath/0.5.1  relion/4.0.2  samtools/1.17   
 fiji/1.54f   fsl/6.0.7.18      julia/1.7.0  matlabruntime/v910  plink/v2.00-250819  R/4.5.0       relion/5.0.0  vscode/4.101.2  
@@ -120,13 +120,13 @@ mpi/openmpi-x86_64
 
 Key:
 modulepath  
-[reppasa@s-sc-node004 ~]$ R
+{{ site.remote.node }} R
 bash: R: command not found
-[reppasa@s-sc-node004 ~]$ module load R/4.5.0
-[reppasa@s-sc-node004 ~]$ which R
+{{ site.remote.node }} module load R/4.5.0
+[{{ site.remote.node }} which R
 /sc-software/modules_el9/R/4.5.0/bin/R
 
-[reppasa@s-sc-node004 ~]$ R
+{{ site.remote.node }} R
 
 R version 4.5.0 (2025-04-11) -- "How About a Twenty-Six"
 Copyright (C) 2025 The R Foundation for Statistical Computing
