@@ -39,8 +39,8 @@ Currently Loaded Modulefiles:
 Load also freesurfer:
 
 ```
-{{ site.remote.node }} module load freesurfer/7.4.1
-{{ site.remote.node }} module list
+{{ site.remote.prompt_node }} module load freesurfer/7.4.1
+{{ site.remote.prompt_node }} module list
 Currently Loaded Modulefiles:
  1) R/4.5.0   2) matlab/R2024b   3) freesurfer/7.4.1  
 ```
@@ -52,13 +52,13 @@ So using `module unload` "un-loads" a module, and depending on how a site is
  (unloads everything).
 
 ```
-{{ site.remote.node }} module unload freesurfer/7.4.1
-{{ site.remote.node }} module list
+{{ site.remote.prompt_node }} module unload freesurfer/7.4.1
+{{ site.remote.prompt_node }} module list
 Currently Loaded Modulefiles:
  1) R/4.5.0   2) matlab/R2024b 
 
-{{ site.remote.node }} module purge
-{{ site.remote.node }} module list
+{{ site.remote.prompt_node }} module purge
+{{ site.remote.prompt_node }} module list
 
 No modules loaded
 ```
