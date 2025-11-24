@@ -329,18 +329,18 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 >
 > In our cluster, the compute partition is the default one. The latter means that in order to start a job in another partition, we 
 > need to explicitly request it during our submission. For example, in order to submit to the `gpu` partition, we should define:
-> ` -p gpu` (equivalent to `--partition gpu`). Moreover, we need to ask for a gpu or part of a gpu, with the command `--gres=gpu:1`
+>  `-p gpu` (equivalent to `--partition gpu`). Moreover, we need to ask for a gpu or part of a gpu, with the command `--gres=gpu:1`
 > or `--gres=shard:1` where `--gres` stands for General Resources that defines the GPUs in our cluster. 
 > 
 >
-> Try start a job in the gpu partition and request 1 part of a GPU. In our cluster, each GPU in the gpu partition
+> Try starting a job in the gpu partition and request 1 part of a GPU. In our cluster, each GPU in the gpu partition
 > is configured in a way to be shared up to 4 jobs. Thus, you can request up to 4 shards in a GPU node.
 >
 > > ## Solution
 > >
 > > ```
 > >{{ site.remote.prompt }} {{ site.sched.interactive }} -p gpu --gres=shard:1 --pty bash
-> >```
+> >
 > >
 > >
 > >srun: job 6974696 queued and waiting for resources
@@ -349,9 +349,11 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 > >
 > >{{ site.remote.prompt_node }} scontrol show job 6974696 | grep shard
 > >   ReqTRES=cpu=1,mem=4G,node=1,billing=2,gres/shard=1
+> >
 > >   AllocTRES=cpu=1,mem=4G,node=1,billing=2,gres/shard=1
+> >
 > >   TresPerNode=gres/shard:1
-
+> >
 > >```
 > > 
 > {: .solution}
