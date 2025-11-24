@@ -1,8 +1,8 @@
 ```
-[reppasa@s-sc-frontend3 workshop]$ squeue -u reppasa
+{{ site.remote.prompt }} squeue -u {{ site.remote.user }}
 
 JOBID     PARTITION     NAME     USER   ST       TIME   NODES   NODELIST(REASON)
-6780822    compute  example-   reppasa  R        0:13      1      s-sc-node007
+6780822    compute  example-   {{ site.remote.user }}  R        0:13      1      s-sc-node007
 
 ```
 {: .output}
