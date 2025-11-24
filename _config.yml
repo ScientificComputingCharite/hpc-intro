@@ -46,10 +46,10 @@ remote:
   node: "s-sc-node003"
   location: "cluster.hpc-carpentry.org"
   homedir: "/home"
-  user: "reppasa"
+  user: "svc-sc-slurm3"
   module_python3: "Python"
-  prompt: "[reppasa@s-sc-frontend3 ~]$"
-  prompt_node: "[reppasa@s-sc-frontend3 ~]$"
+  prompt: "[svc-sc-slurm3@s-sc-frontend3 ~]$"
+  prompt_node: "[svc-sc-slurm3@s-sc-frontend3 ~]$"
   bash_shebang: "#!/bin/bash"
 
 sched:
@@ -62,7 +62,7 @@ sched:
     testing: "cpubase_bycore_b1"
   status: "squeue"
   flag:
-    user: "-u reppasa"
+    user: "-u svc-sc-slurm3"
     interactive: ""
     histdetail: "-l -j"
     name: "--job-name"
@@ -74,7 +74,7 @@ sched:
   interactive: "srun"
   info: "sinfo"
   comment: "#SBATCH"
-  hist: "sacct -u reppasa -S 2025-10-01"
+  hist: "sacct -u svc-sc-slurm3 -S 2025-10-01"
   hist_filter: ""
 
 episode_order:
