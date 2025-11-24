@@ -324,7 +324,8 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 
 {% include {{ site.snippets }}/scheduler/using-nodes-interactively.snip %}
 
-> ## Submitting an interactive Job using a GPU
+
+> ## Submitting an interactive Job with a GPU request
 >
 > In our cluster, the compute partition is the default one. The latter means that in order to start a job in another partition, we 
 > need to explicitly request it during our submission. For example, in order to submit to the `gpu` partition, we should define:
@@ -338,7 +339,7 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 > > ## Solution
 > >
 > > ```
->> {{ site.remote.prompt }} {{ site.sched.interactive }} -p gpu --gres=shard:1 --pty bash
+> >{{ site.remote.prompt }} {{ site.sched.interactive }} -p gpu --gres=shard:1 --pty bash
 > >```
 > >
 > >
