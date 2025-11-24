@@ -376,7 +376,7 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 > > {{ site.remote.bash_shebang }}
 > > {{ site.sched.comment }} {{ site.sched.flag.time }}=00:01 # timeout in HH:MM
 > > {{ site.sched.comment }} {{ site.sched.flag.partition }}=gpu # define partition
-> > {{ site.sched.comment }} {{ site.sched.flag.gres }}=2 # request 2 gpu shards
+> > {{ site.sched.comment }} {{ site.sched.flag.gres }}:2 # request for 2 gpu shards
 > >
 > > nvidia-smi 
 > > echo -n "This script is running on "
