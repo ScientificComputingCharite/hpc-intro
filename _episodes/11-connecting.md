@@ -48,9 +48,10 @@ machine address as the only required argument. If your username on the remote
 system differs from what you use locally, you must provide that as well. If
 your SSH client has a graphical front-end, such as PuTTY or MobaXterm, you will
 set these arguments before clicking "connect." From the terminal, you'll write
-something like `ssh reppasa@s-sc-frontend1.charite.de`, where the argument is just like an
+something like `ssh {{ site.remote.user }}@{{ site.remote.login }}`, where the argument is just like an
 email address: the "@" symbol is used to separate the personal ID from the
 address of the remote machine.
+
 
 When logging in to a laptop, tablet, or other personal device, a username,
 password, or pattern are normally required to prevent unauthorized access. In
@@ -343,6 +344,13 @@ on though so we will adopt the following convention:
 * `{{ site.remote.prompt }}` when the command is to be entered on a
   terminal connected to the remote system
 * `$` when it really doesn't matter which system the terminal is connected to.
+
+If you are using ssh on a Windows client you might have to add the option -m hmac-sha2-512 to your ssh command, e.g.
+
+```
+{{ site.local.prompt }} ssh -m hmac-sha2-512 {{ site.remote.user }}@{{ site.remote.login }}
+```
+{: .language-bash}
 
 ## Looking Around Your Remote Home
 
