@@ -335,32 +335,23 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 > Try start a job in the gpu partition and request 1 part of a GPU. In our cluster, each GPU in the gpu partition
 > is configured in a way to be shared up to 4 jobs. Thus, you can request up to 4 shards in a GPU node.
 >
-
-
 > > ## Solution
 > >
-> > > >
 > > ```
 >> {{ site.remote.prompt }} {{ site.sched.interactive }} -p gpu --gres=shard:1 --pty bash
-```
-{: .language-bash}
-
-srun: job 6974696 queued and waiting for resources
-
-srun: job 6974696 has been allocated resources
-
-{{ site.remote.prompt_node }} scontrol show job 6974696 | grep shard
-   ReqTRES=cpu=1,mem=4G,node=1,billing=2,gres/shard=1
-   AllocTRES=cpu=1,mem=4G,node=1,billing=2,gres/shard=1
-   TresPerNode=gres/shard:1
-
-```
-> > 
-
-> > 
-> > {: .language-bash}
+> >```
 > >
-> > 
+> >
+> >srun: job 6974696 queued and waiting for resources
+> >
+> >srun: job 6974696 has been allocated resources
+> >
+> >{{ site.remote.prompt_node }} scontrol show job 6974696 | grep shard
+> >   ReqTRES=cpu=1,mem=4G,node=1,billing=2,gres/shard=1
+> >   AllocTRES=cpu=1,mem=4G,node=1,billing=2,gres/shard=1
+> >   TresPerNode=gres/shard:1
+
+> >```
 > > 
 > {: .solution}
 {: .challenge}

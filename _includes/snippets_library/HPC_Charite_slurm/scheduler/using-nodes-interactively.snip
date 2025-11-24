@@ -11,7 +11,7 @@ job with `Ctrl-c`.)
 ```
 srun: job 6799015 queued and waiting for resources
 srun: job 6799015 has been allocated resources
-{{ site.remote.node }}
+{{ site.remote.prompt_node }}
 ```
 {: .output}
 
@@ -43,7 +43,6 @@ easy to start an interactive job with `{{ site.sched.interactive }}`:
 
 ```
 {{ site.remote.prompt }} {{ site.sched.interactive }} --pty bash
-```
 
 srun: job 6799019 queued and waiting for resources
 
