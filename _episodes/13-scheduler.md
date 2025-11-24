@@ -334,7 +334,7 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 > 
 >
 > Try starting a job in the gpu partition and request 1 part of a GPU. In our cluster, each GPU in the gpu partition
-> is configured in a way to be shared up to 4 jobs. Thus, you can request up to 4 shards in a GPU node.
+> is configured to be shared up to 4 jobs.
 >
 > > ## Solution
 > >
@@ -356,6 +356,41 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 > >
 > >```
 > > 
+> {: .solution}
+{: .challenge}
+
+
+> ## Submit a Batch Job in the GPU Partition
+>
+>
+> Try starting a job in the gpu partition and request 2 parts of a GPU.
+>
+> > ## Solution
+> >
+> > ```
+> > {{ site.remote.prompt }} nano gpu-job.sh
+> > ```
+> > {: .language-bash}
+> >
+> > ```
+> > {{ site.remote.bash_shebang }}
+> > {{ site.sched.comment }} {{ site.sched.flag.time }}=00:01 # timeout in HH:MM
+> > {{ site.sched.comment }} {{ site.sched.flag.partition }}=gpu # define partition
+> > {{ site.sched.comment }} {{ site.sched.flag.gres }}=2 # request 2 gpu shards
+> >
+> > nvidia-smi 
+> > echo -n "This script is running on "
+> > sleep 20 # time in seconds
+> > hostname
+> > ```
+> > {: .output}
+> >
+> > ```
+> > {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}gpu-job.sh
+> > ```
+> > {: .language-bash}
+> >
+> > What is the output of the nvidia-smi command?
 > {: .solution}
 {: .challenge}
 

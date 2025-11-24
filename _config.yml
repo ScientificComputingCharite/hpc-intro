@@ -70,6 +70,8 @@ sched:
     queue: "-p"
     nodes: "--nodes"
     tasks: "--ntasks"
+    partition: "--partition"
+    gres: "--gres=shard:"
   del: "scancel"
   interactive: "srun"
   info: "sinfo"
