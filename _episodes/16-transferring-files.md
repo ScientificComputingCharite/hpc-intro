@@ -247,10 +247,10 @@ The `scp` command is a relative of the `ssh` command we used to
 access the system, and can use the same public-key authentication
 mechanism.
 
-Avoid tranferring files directly through the frontend nodes of the cluster. Instead, just start an interactive job; once you have an interactive job, you can access your home directory from this node.
+Avoid tranferring files directly through the frontend nodes of the cluster. Instead, just start an interactive job; once you have an interactive job, you can tranfer the file to your home directory through the node that your job runs.
 
 ```
-{{ site.local.prompt }} {{ site.remote.prompt }} srun -n 2 --pty bash
+{{ site.remote.prompt }} srun -n 2 --pty bash
 srun: job 6799379 queued and waiting for resources
 srun: job 6799379 has been allocated resources
 {{ site.remote.prompt_node }}
@@ -260,7 +260,7 @@ srun: job 6799379 has been allocated resources
 To _upload to_ another computer, the template command is
 
 ```
-{{ site.local.prompt }} scp local_file {{ site.remote.user }}@{{ site.remote.prompt_node }}:remote_destination
+{{ site.local.prompt }} scp local_file {{ site.remote.user }}@{{ site.remote.transfer_node }}:remote_destination
 ```
 {: .language-bash}
 
@@ -280,7 +280,7 @@ for `local_file`.
 Upload the lesson material to your remote home directory like so:
 
 ```
-{{ site.local.prompt }} scp amdahl.tar.gz {{ site.remote.user }}@{{ site.remote.prompt_node }}:
+{{ site.local.prompt }} scp amdahl.tar.gz {{ site.remote.user }}@{{ site.remote.transfer_node }}:{{ site.remote.homedir }}/{{ site.remote.user }}/
 ```
 {: .language-bash}
 
@@ -300,7 +300,7 @@ Upload the lesson material to your remote home directory like so:
 > >
 > > ```
 > > {{ site.local.prompt }} ssh {{ site.remote.user }}@{{ site.remote.login }}
-> > {{ site.remote.prompt }} ssh -n 2 --pty bash
+> > {{ site.remote.prompt }} srun -n 2 --pty bash
 > > {{ site.remote.prompt_node }} wget -O amdahl.tar.gz https://github.com/hpc-carpentry/amdahl/tarball/main
 > > # or
 > > {{ site.remote.prompt_node }} curl -o amdahl.tar.gz https://github.com/hpc-carpentry/amdahl/tarball/main
@@ -320,7 +320,7 @@ until it reaches the bottom of the directory tree rooted at the folder name you
 provided.
 
 ```
-{{ site.local.prompt }} scp -r amdahl {{ site.remote.user }}@{{ site.remote.prompt_node }}:
+{{ site.local.prompt }} scp -r amdahl {{ site.remote.user }}@{{ site.remote.transfer_node }}:
 ```
 {: .language-bash}
 
@@ -366,7 +366,7 @@ no effect. It is important for other commands, like `rsync`.
 > commonly used options:
 >
 > ```
-> {{ site.local.prompt }} rsync -avP amdahl.tar.gz {{ site.remote.user }}@{{ site.remote.prompt_node }}:
+> {{ site.local.prompt }} rsync -avP amdahl.tar.gz {{ site.remote.user }}@{{ site.remote.transfer_node }}:{{ site.remote.homedir }}/{{ site.remote.user }}/
 > ```
 > {: .language-bash}
 >
@@ -381,7 +381,7 @@ no effect. It is important for other commands, like `rsync`.
 > To recursively copy a directory, we can use the same options:
 >
 > ```
-> {{ site.local.prompt }} rsync -avP amdahl {{ site.remote.user }}@{{ site.remote.prompt_node }}:~/
+> {{ site.local.prompt }} rsync -avP amdahl {{ site.remote.user }}@{{ site.remote.transfer_node }}:{{ site.remote.homedir }}/{{ site.remote.user }}/
 > ```
 > {: .language-bash}
 >
@@ -394,7 +394,7 @@ no effect. It is important for other commands, like `rsync`.
 > To download a file, we simply change the source and destination:
 >
 > ```
-> {{ site.local.prompt }} rsync -avP {{ site.remote.user }}@{{ site.remote.prompt_node }}:amdahl ./
+> {{ site.local.prompt }} rsync -avP {{ site.remote.user }}@{{ site.remote.transfer_node }}:{{ site.remote.homedir }}/{{ site.remote.user }}/amdahl ./
 > ```
 > {: .language-bash}
 {: .callout}
@@ -411,7 +411,7 @@ you will have to specify it using the appropriate flag, often `-p`, `-P`, or
 > modify this command?
 >
 > ```
-> {{ site.local.prompt }} rsync amdahl.tar.gz {{ site.remote.user }}@{{ site.remote.prompt_node }}:
+> {{ site.local.prompt }} rsync amdahl.tar.gz {{ site.remote.user }}@{{ site.remote.transfer_node }}:{{ site.remote.homedir }}/{{ site.remote.user }}/
 > ```
 > {: .language-bash}
 >
@@ -424,7 +424,7 @@ you will have to specify it using the appropriate flag, often `-p`, `-P`, or
 > > {{ site.local.prompt }} rsync --help | grep port
 > >      --port=PORT             specify double-colon alternate port number
 > > See http://rsync.samba.org/ for updates, bug reports, and answers
-> > {{ site.local.prompt }} rsync --port=768 amdahl.tar.gz {{ site.remote.user }}@{{ site.remote.prompt_node }}:
+> > {{ site.local.prompt }} rsync --port=768 amdahl.tar.gz {{ site.remote.user }}@{{ site.remote.transfer_node }}:{{ site.remote.homedir }}/{{ site.remote.user }}/
 > > ```
 > > {: .language-bash}
 > >

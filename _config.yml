@@ -50,6 +50,7 @@ remote:
   module_python3: "Python"
   prompt: "[svc-sc-slurm3@s-sc-frontend3 ~]$"
   prompt_node: "[svc-sc-slurm3@s-sc-node003 ~]$"
+  transfer_node: "svc-sc-slurm3@s-sc-node003"
   bash_shebang: "#!/bin/bash"
 
 sched:
