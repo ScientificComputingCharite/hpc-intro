@@ -220,7 +220,7 @@ later episode of this lesson.
 > >
 > > ```
 > > {{ site.remote.bash_shebang }}
-> > {{ site.sched.comment }} {{ site.sched.flag.time }}=00:01 # timeout in HH:MM
+> > {{ site.sched.comment }} {{ site.sched.flag.time }}=00:01:00 # timeout in HH:MM:SS
 > >
 > > echo -n "This script is running on "
 > > sleep 20 # time in seconds
@@ -249,7 +249,7 @@ wall time, and attempt to run a job for two minutes.
 ```
 {{ site.remote.bash_shebang }}
 {{ site.sched.comment }} {{ site.sched.flag.name }} long_job
-{{ site.sched.comment }} {{ site.sched.flag.time }} 00:01 # timeout in HH:MM
+{{ site.sched.comment }} {{ site.sched.flag.time }} 00:01:00 # timeout in HH:MM:SS
 
 echo "This script is running on ... "
 sleep 240 # time in seconds
@@ -374,7 +374,7 @@ can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 > >
 > > ```
 > > {{ site.remote.bash_shebang }}
-> > {{ site.sched.comment }} {{ site.sched.flag.time }}=00:01 # timeout in HH:MM
+> > {{ site.sched.comment }} {{ site.sched.flag.time }}=00:01:00 # timeout in HH:MM:SS
 > > {{ site.sched.comment }} {{ site.sched.flag.partition }}=gpu # define partition
 > > {{ site.sched.comment }} {{ site.sched.flag.gres }}:2 # request for 2 gpu shards
 > >

@@ -320,7 +320,7 @@ until it reaches the bottom of the directory tree rooted at the folder name you
 provided.
 
 ```
-{{ site.local.prompt }} scp -r amdahl {{ site.remote.user }}@{{ site.remote.transfer_node }}:
+{{ site.local.prompt }} scp -r amdahl {{ site.remote.user }}@{{ site.remote.transfer_node }}:{{ site.remote.homedir }}/{{ site.remote.user }}/
 ```
 {: .language-bash}
 
