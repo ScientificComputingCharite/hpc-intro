@@ -298,20 +298,20 @@ provide the key on your behalf without you having to type a single keystroke.
 If you are using PuTTY on Windows, download and use `pageant` as the SSH agent.
 See the [PuTTY documentation][putty-agent].
 
-### Transfer Your Public Key
+[//]: #### Transfer Your Public Key
 
-{% if site.remote.portal %}
-Visit [{{ site.remote.portal }}]({{ site.remote.portal }}) to upload your SSH
-public key. (Remember, it's the one ending in `.pub`!)
+[//]: #{% if site.remote.portal %}
+[//]: #Visit [{{ site.remote.portal }}]({{ site.remote.portal }}) to upload your SSH
+[//]: #public key. (Remember, it's the one ending in `.pub`!)
 
-{% else %}
-Use the **s**ecure **c**o**p**y tool to send your public key to the cluster.
+[//]:{% else %}
+[//]:Use the **s**ecure **c**o**p**y tool to send your public key to the cluster.
 
-```
-{{ site.local.prompt }} scp ~/.ssh/id_ed25519.pub {{ site.remote.user }}@{{ site.remote.login }}:~/
-```
-{: .language-bash}
-{% endif %}
+[//]:```
+[//]:{ site.local.prompt }} scp ~/.ssh/id_ed25519.pub {{ site.remote.user }}@{{ site.remote.login }}:~/
+[//]:```
+[//]:{: .language-bash}
+[//]:{% endif %}
 
 ## Log In to the Cluster
 
