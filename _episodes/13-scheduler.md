@@ -157,7 +157,7 @@ script, but the `{{ site.sched.flag.name }}` option can be used to change the
 name of a job. Add an option to the script:
 
 ```
-{{ site.remote.prompt }} cat example-job.sh
+{{ site.remote.prompt }} nano example-job.sh
 ```
 {: .language-bash}
 
